@@ -5,16 +5,18 @@ Created on Mon Jan  4 10:53:40 2021
 @author: Sterling Abrahams
 """
 
-# Implementation of a fat tree topology 
-
+import math
+from collections import defaultdict
 
 k = int(input('Enter number of ports for each switch, must be an even number: '))
         
 class fatTree():
     
     CoreSwitchList = []
+    CoreDict = defaultdict(lambda: [])
     AggSwitchList = []
     EdgeSwitchList = []
+    EdgeDict = defaultdict(lambda: [])
     # Each pod will be a list of agg switches and edge switches
     # k/2 agg switchs and k/2 edge switches
     PodList = []
@@ -97,6 +99,7 @@ class fatTree():
                 aggCount += 1
             for j in range(aggCount, self.iAggLayerSwitch, podSize):
                 self.addLink(self.CoreSwitchList[i], self.AggSwitchList[j])
+                self.CoreDict[self.CoreSwitchList[i]].append(self.AggSwitchList[j])
                 
         # Connect agg switches in each pod to edge switches in the pod
         for pod in self.PodList:
@@ -111,22 +114,66 @@ class fatTree():
         for i in range(self.iEdgeLayerSwitch):
             for j in range(pmcount, pmcount + podSize):
                 self.addLink(self.EdgeSwitchList[i], self.HostList[j])
+                self.EdgeDict[self.EdgeSwitchList[i]].append(self.HostList[j])
             pmcount += podSize
         
             
         
     
-    def calc_dist(node1, node2):
-        pass
+    def calc_dist(self, node1, node2):
+        # Can use the IDs and pods to calculate distance on a case by case basis
+     
+        # First case, both nodes are hosts
+        if node1[0] == '4' and node2[0] == '4':
+            for edgeSwitch in self.EdgeSwitchList:
+                if node1 in self.EdgeDict[edgeSwitch] and node2 in self.EdgeDict[edgeSwitch]:
+                    return 2
+            
+            for pod in self.PodList:
+                podCheck = []
+                for switch in pod:
+                    if switch[0] == '3':
+                        for host in self.EdgeDict[switch]:
+                            podCheck.append(host)
+                if node1 in podCheck and node2 in podCheck:
+                    return 4
+            return 6
         
+        # Second case, host and edge switch
+        if node1[0] == '4' and node2[0] == '3':
+            check1 = node1
+            check2 = node2
+            if check1 in self.EdgeDict[check2]:
+                return 1
+        
+            key_list = list(self.EdgeDict.keys())
+            val_list = list(self.EdgeDict.values())
+            position = val_list.index(check1)
+            edgesw = key_list(position)
+            for pod in self.PodList:
+                if edgesw in pod and check2 in pod:
+                    return 3
+            return 5
+        if node1[0] == '3' and node2[0] == '4':
+            check1 = node2
+            check2 = node1
             
-
-mytree = fatTree(k)
-
-            
+            if check1 in self.EdgeDict[check2]:
+                return 1
+        
+            key_list = list(self.EdgeDict.keys())
+            val_list = list(self.EdgeDict.values())
+            for i in range(len(val_list)):
+                if check1 in val_list[i]:
+                    position = i
+            edgesw = key_list[position]
+            for pod in self.PodList:
+                if edgesw in pod and check2 in pod:
+                    return 3
+            return 5
     
         
-
+mytree = fatTree(k)
     
 
     
