@@ -32,14 +32,13 @@ class fatTree():
         self.iCoreLayerSwitch = int(pow((k//2),2)) 
         self.iAggLayerSwitch = int(k/2) * k
         self.iEdgeLayerSwitch = self.iAggLayerSwitch
-        self.iHost = self.iEdgeLayerSwitch * 2 
+        self.iHost = self.iEdgeLayerSwitch * self.podSize
         self.iPods = k
         self.createCoreLayerSwitch(self.iCoreLayerSwitch)
         self.createAggLayerSwitch(self.iAggLayerSwitch)
         self.createEdgeLayerSwitch(self.iEdgeLayerSwitch)
         self.createHost(self.iHost)
         self.createPod(self.iPods)
-        self.createLink()
         print('Core Switches:')
         print(self.CoreSwitchList)
         print('Aggregation Switches: ')
@@ -50,6 +49,7 @@ class fatTree():
         print(self.PodList)
         print('Hosts:')
         print(self.HostList)
+        self.createLink()
         
         
         
@@ -156,15 +156,19 @@ class fatTree():
         
         # Second case, host and edge switch
         if node1[0] == '4' and node2[0] == '3':
-            check1 = node1
-            check2 = node2
+            check1 = node2
+            check2 = node1
+            
             if check1 in self.EdgeDict[check2]:
                 return 1
         
             key_list = list(self.EdgeDict.keys())
             val_list = list(self.EdgeDict.values())
-            position = val_list.index(check1)
-            edgesw = key_list(position)
+            position = 0
+            for i in range(len(val_list)):
+                if check1 in val_list[i]:
+                    position = i
+            edgesw = key_list[position]
             for pod in self.PodList:
                 if edgesw in pod and check2 in pod:
                     return 3
@@ -178,6 +182,7 @@ class fatTree():
         
             key_list = list(self.EdgeDict.keys())
             val_list = list(self.EdgeDict.values())
+            position = 0
             for i in range(len(val_list)):
                 if check1 in val_list[i]:
                     position = i
@@ -192,15 +197,15 @@ class fatTree():
         if node1[0] == '4' and node2[0] == '2':
             check1 = node1
             check2 = node2
-            tab = math.floor(int(check1[2:4]) / self.podSize) + int(check1[2:4]) % self.podSize
-            if int(node2[2:4]) - tab == 0 or int(node2[2:4]) - tab == 1:
+            tab = math.floor(int(check1[2:]) / self.podSize) + int(check1[2:]) % self.podSize
+            if int(node2[2:]) - tab == 0 or int(node2[2:]) - tab == 1:
                 return 2
             return 4
         if node1[0] == '2' and node2[0] == '4':
             check1 = node2
             check2 = node1
-            tab = math.floor(int(check1[2:4]) / self.podSize) + int(check1[2:4]) % self.podSize
-            if int(node2[2:4]) - tab == 0 or int(node2[2:4]) - tab == 1:
+            tab = math.floor(int(check1[2:]) / self.podSize) + int(check1[2:]) % self.podSize
+            if int(node2[2:]) - tab == 0 or int(node2[2:]) - tab == 1:
                 return 2
             return 4
         
@@ -210,14 +215,14 @@ class fatTree():
             
         # Fifth case, edge and edge switch
         if node1[0] == '3' and node2[0] == '3':
-            if math.ceil(int(node1[2:4])/self.podSize) == math.ceil(int(node2[2:4])/self.podSize):
+            if math.ceil(int(node1[2:])/self.podSize) == math.ceil(int(node2[2:])/self.podSize):
                 return 2
             else:
                 return 4
         
         # Sixth case, Edge and Agg switch
         if node1[0] == '3' and node2[0] == '2' or node1[0] == '2' and node2[0] == '3':
-            if math.ceil(int(node1[2:4]) / self.podSize) == math.ceil(int(node2[2:4]) / self.podSize):
+            if math.ceil(int(node1[2:]) / self.podSize) == math.ceil(int(node2[2:]) / self.podSize):
                 return 1
             else:
                 return 3
@@ -228,26 +233,26 @@ class fatTree():
         
         # Case 8, Agg and Agg switch
         if node1[0] == '2' and node2[0] == '2':
-            if int(node1[2:4]) % self.podSize == int(node2[2:4]) % self.podSize or math.ceil(int(node1[2:4])/self.podSize) == math.ceil(int(node2[2:4])/self.podSize):
+            if int(node1[2:]) % self.podSize == int(node2[2:]) % self.podSize or math.ceil(int(node1[2:])/self.podSize) == math.ceil(int(node2[2:])/self.podSize):
                 return 2
             else:
                 return 4
         
         # Case 9, Agg and Core switch
         if node1[0] == '2' and node2[0] == '1':
-            if int(node1[2:4]) % self.podSize == int(node2[2:4]) % self.podSize:
+            if int(node1[2:]) % self.podSize == int(node2[2:]) % self.podSize:
                 return 1
             else:
                 return 3
         if node1[0] == '1' and node2[0] == '2':
-            if int(node1[2:4]) % self.podSize == int(node2[2:4]) % self.podSize:
+            if int(node1[2:]) % self.podSize == int(node2[2:]) % self.podSize:
                 return 1
             else:
                 return 3
         
         # Case 10, Core and Core switch
         if node1[0] == '1'and node2[0] == '1':
-            if math.ceil(int(node1[2:4]) / self.podSize) == math.ceil(int(node2[2:4]) / self.podSize):
+            if math.ceil(int(node1[2:]) / self.podSize) == math.ceil(int(node2[2:]) / self.podSize):
                 return 2
             else:
                 return 4
