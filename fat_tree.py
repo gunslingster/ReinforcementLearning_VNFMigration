@@ -5,6 +5,8 @@ Created on Mon Jan  4 10:53:40 2021
 @author: Sterling Abrahams
 """
 
+# Implementation of a fat tree topology 
+
 import math
 from collections import defaultdict
 
@@ -26,6 +28,7 @@ class fatTree():
     
     def __init__(self, k):
         self.k = k
+        self.podSize = int(k/2)
         self.iCoreLayerSwitch = int(pow((k//2),2)) 
         self.iAggLayerSwitch = int(k/2) * k
         self.iEdgeLayerSwitch = self.iAggLayerSwitch
@@ -36,8 +39,17 @@ class fatTree():
         self.createEdgeLayerSwitch(self.iEdgeLayerSwitch)
         self.createHost(self.iHost)
         self.createPod(self.iPods)
-        self.createHost(self.iHost)
         self.createLink()
+        print('Core Switches:')
+        print(self.CoreSwitchList)
+        print('Aggregation Switches: ')
+        print(self.AggSwitchList)
+        print('Edge Switches: ')
+        print(self.EdgeSwitchList)
+        print('Pods:')
+        print(self.PodList)
+        print('Hosts:')
+        print(self.HostList)
         
         
         
@@ -171,9 +183,77 @@ class fatTree():
                 if edgesw in pod and check2 in pod:
                     return 3
             return 5
-    
         
+        # Third case, host and agg switch
+        # DIst is 2 if it's connected to that pod, or 4 if not
+        if node1[0] == '4' and node2[0] == '2':
+            check1 = node1
+            check2 = node2
+            tab = math.floor(int(check1[2:4]) / self.podSize) + int(check1[2:4]) % self.podSize
+            if int(node2[2:4]) - tab == 0 or int(node2[2:4]) - tab == 1:
+                return 2
+            return 4
+        if node1[0] == '2' and node2[0] == '4':
+            check1 = node2
+            check2 = node1
+            tab = math.floor(int(check1[2:4]) / self.podSize) + int(check1[2:4]) % self.podSize
+            if int(node2[2:4]) - tab == 0 or int(node2[2:4]) - tab == 1:
+                return 2
+            return 4
+        
+        # Fourth Case, host and core switch, dist is always 3
+        if node1[0] == '4' and node2[0] == '1' or node1[0] == '1' and node2[0] == '4':
+            return 3
+            
+        # Fifth case, edge and edge switch
+        if node1[0] == '3' and node2[0] == '3':
+            if math.ceil(int(node1[2:4])/self.podSize) == math.ceil(int(node2[2:4])/self.podSize):
+                return 2
+            else:
+                return 4
+        
+        # Sixth case, Edge and Agg switch
+        if node1[0] == '3' and node2[0] == '2' or node1[0] == '2' and node2[0] == '3':
+            if math.ceil(int(node1[2:4]) / self.podSize) == math.ceil(int(node2[2:4]) / self.podSize):
+                return 1
+            else:
+                return 3
+        
+        # Seventh case, Edge and Core switch, dist is always 2
+        if node1[0] == '3' and node2[0] == '1' or node1[0] == '1' and node2[0] == '3':
+            return 2
+        
+        # Case 8, Agg and Agg switch
+        if node1[0] == '2' and node2[0] == '2':
+            if int(node1[2:4]) % self.podSize == int(node2[2:4]) % self.podSize or math.ceil(int(node1[2:4])/self.podSize) == math.ceil(int(node2[2:4])/self.podSize):
+                return 2
+            else:
+                return 4
+        
+        # Case 9, Agg and Core switch
+        if node1[0] == '2' and node2[0] == '1':
+            if int(node1[2:4]) % self.podSize == int(node2[2:4]) % self.podSize:
+                return 1
+            else:
+                return 3
+        if node1[0] == '1' and node2[0] == '2':
+            if int(node1[2:4]) % self.podSize == int(node2[2:4]) % self.podSize:
+                return 1
+            else:
+                return 3
+        
+        # Case 10, Core and Core switch
+        if node1[0] == '1'and node2[0] == '1':
+            if math.ceil(int(node1[2:4]) / self.podSize) == math.ceil(int(node2[2:4]) / self.podSize):
+                return 2
+            else:
+                return 4
+            
+            
 mytree = fatTree(k)
+n1 = input('Please enter first node: ')
+n2 = input('Please enter second node: ')
+print('Distance between nodes is : {}'.format(mytree.calc_dist(n1,n2)))
     
 
     
