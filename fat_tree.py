@@ -134,6 +134,9 @@ class fatTree():
     
     def calc_dist(self, node1, node2):
         # Can use the IDs and pods to calculate distance on a case by case basis
+        
+         if node1 == node2:
+            return 0
      
         # First case, both nodes are hosts
         if node1[0] == '4' and node2[0] == '4':
