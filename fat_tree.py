@@ -29,7 +29,7 @@ class fatTree():
     def __init__(self, k):
         self.k = k
         self.podSize = int(k/2)
-        self.iCoreLayerSwitch = int(pow((k//2),2)) 
+        self.iCoreLayerSwitch = int(pow(k/2,2)) 
         self.iAggLayerSwitch = int(k/2) * k
         self.iEdgeLayerSwitch = self.iAggLayerSwitch
         self.iHost = self.iEdgeLayerSwitch * self.podSize
@@ -162,16 +162,9 @@ class fatTree():
             if check1 in self.EdgeDict[check2]:
                 return 1
         
-            key_list = list(self.EdgeDict.keys())
-            val_list = list(self.EdgeDict.values())
-            position = 0
-            for i in range(len(val_list)):
-                if check1 in val_list[i]:
-                    position = i
-            edgesw = key_list[position]
-            for pod in self.PodList:
-                if edgesw in pod and check2 in pod:
-                    return 3
+            hostsPerPod = self.iCoreLayerSwitch
+            if math.ceil(int(check1[2:])/hostsPerPod) == math.ceil(int(check1[2:])/self.podSize):
+                return 3
             return 5
         if node1[0] == '3' and node2[0] == '4':
             check1 = node2
@@ -180,16 +173,9 @@ class fatTree():
             if check1 in self.EdgeDict[check2]:
                 return 1
         
-            key_list = list(self.EdgeDict.keys())
-            val_list = list(self.EdgeDict.values())
-            position = 0
-            for i in range(len(val_list)):
-                if check1 in val_list[i]:
-                    position = i
-            edgesw = key_list[position]
-            for pod in self.PodList:
-                if edgesw in pod and check2 in pod:
-                    return 3
+            hostsPerPod = self.iCoreLayerSwitch
+            if math.ceil(int(check1[2:])/hostsPerPod) == math.ceil(int(check1[2:])/self.podSize):
+                return 3
             return 5
         
         # Third case, host and agg switch
@@ -197,15 +183,15 @@ class fatTree():
         if node1[0] == '4' and node2[0] == '2':
             check1 = node1
             check2 = node2
-            tab = math.floor(int(check1[2:]) / self.podSize) + int(check1[2:]) % self.podSize
-            if int(node2[2:]) - tab == 0 or int(node2[2:]) - tab == 1:
+            hostsPerPod = self.iCoreLayerSwitch
+            if math.ceil(int(check1[2:])/hostsPerPod) == math.ceil(int(check1[2:])/self.podSize):
                 return 2
             return 4
         if node1[0] == '2' and node2[0] == '4':
             check1 = node2
             check2 = node1
-            tab = math.floor(int(check1[2:]) / self.podSize) + int(check1[2:]) % self.podSize
-            if int(node2[2:]) - tab == 0 or int(node2[2:]) - tab == 1:
+            hostsPerPod = self.iCoreLayerSwitch
+            if math.ceil(int(check1[2:])/hostsPerPod) == math.ceil(int(check1[2:])/self.podSize):
                 return 2
             return 4
         
@@ -262,8 +248,6 @@ mytree = fatTree(k)
 n1 = input('Please enter first node: ')
 n2 = input('Please enter second node: ')
 print('Distance between nodes is : {}'.format(mytree.calc_dist(n1,n2)))
-    
-
     
     
         
