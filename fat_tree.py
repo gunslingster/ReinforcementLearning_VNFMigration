@@ -7,10 +7,7 @@ Created on Tue Jan 12 10:25:27 2021
 # Implementation of a fat tree topology 
 
 import math
-import random
 
-k = int(input('Enter number of ports for each switch, must be an even number: '))
-        
 class fatTree():
     
     CoreSwitchList = []
@@ -74,7 +71,7 @@ class fatTree():
             self.EdgeSwitchList.append(PREFIX + str(x))
             
     def createPod(self, NUMBER):
-        podSize = int(k//2)
+        podSize = self.podSize
         def genPod(index):
             pod = []
             for i in range(index, index+podSize):
@@ -232,21 +229,4 @@ class fatTree():
                 return 2
             else:
                 return 4
-            
-            
-            
-mytree = fatTree(k)
-n1 = input('Please enter first node: ')
-n2 = input('Please enter second node: ')
-print('Distance between nodes is : {}'.format(mytree.calc_dist(n1,n2)))
-
-# Random distance testing
-def distanceCheck(episodes, tree):
-    for i in range(episodes):
-        node1 = random.choice(tree.allNodes)
-        node2 = random.choice(tree.allNodes)
-        distance = mytree.calc_dist(node1, node2)
-        print("Distance between {} and {}: {}".format(node1, node2, distance))
-    
-distanceCheck(100, mytree)
 
