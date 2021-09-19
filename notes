@@ -1,0 +1,12 @@
+To create the cost network, we can move functions from vm_vnf program into the FlowNetwork class. From there, we can assign failure probabilities to each vm and vnf in the network. We can then use the method in the paper to convert this network into a flow network. 
+
+Bin Tang
+	
+5:29 PM (6 hours ago)
+	
+to me
+Hi Sterling,
+
+Resource capacity of a switch means how many backup VNFs this switch can hold.  This is the user input. For now, we can assume it is 1; that is, each switch can hold/store one backup VNF. But which one? this will be determined by the MCF output.
+
+Function f' (j, s_i) = log ( 1/(1 - q_j * p_i ) ), where q_j is the failure probability of VNF_j, and p_j is the failure probability of switch s_i.

@@ -15,7 +15,7 @@ mytree = fatTree(k)
 #         node2 = random.choice(tree.allNodes)
 #         distance = mytree.calc_dist(node1, node2)
 #         print("Distance between {} and {}: {}".format(node1, node2, distance))
-    
+
 # distanceCheck(100, mytree)
 
 l = int(input('Enter l, the number of VM pairs: '))
@@ -48,7 +48,7 @@ def chooseVNF(m):
 
 vnf_list = chooseVNF(m)
 print('VNF nodes: {}'.format(vnf_list))
-    
+
 # This function will generate routes
 # A route starts from the first host in a vm pair
 # Then traverses to each VNF
@@ -62,7 +62,7 @@ def get_routes():
         route.append(pair[1])   # End vm
         routes.append(route)
     return routes
-    
+
 all_routes = get_routes()
 
 def calc_cost(routes):
@@ -89,8 +89,8 @@ def calc_cost(routes):
     return costs
 
 calc_cost(all_routes)
-            
-    
-    
+
+
+
 
 
