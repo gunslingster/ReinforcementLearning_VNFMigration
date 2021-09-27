@@ -32,6 +32,7 @@
 #define UNFEASIBLE          2
 #define ALLOCATION_FAULT    5
 #define PRICE_OFL           6
+#define PRINT_ANS
 
 /* parameters */
 
