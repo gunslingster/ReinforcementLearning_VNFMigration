@@ -281,8 +281,9 @@ class FlowNetwork():
         self.f = int(input('Enter f, the frequency of the link: '))
         self.resource_capacity = 1
         self.vnf_list, self.available_backup_servers = self.generate_VNF_and_available_backup_servers()
-        self.V_prime, self.E_prime, self.capacities_and_costs = self.dataCenter_to_flowNetwork()
+        self.V_prime, self.E_prime, self.capacities_and_costs, self.node_mapping = self.dataCenter_to_flowNetwork()
         self.gen_output_file()
+        self.gen_information_file()
         print(self.capacities_and_costs)
         
     def generate_VNF_and_available_backup_servers(self):
@@ -296,6 +297,10 @@ class FlowNetwork():
     
     def dataCenter_to_flowNetwork(self):
         V_prime = [self.source] + [self.sink] + self.vnf_list + self.available_backup_servers
+        num_nodes = len(V_prime)
+        node_mapping = {}
+        for i in range(num_nodes):
+            node_mapping[V_prime[i]] = i
         E_prime = []
         capacities_and_costs = {}
         for vnf in self.vnf_list:
@@ -307,22 +312,38 @@ class FlowNetwork():
                 capacity = 1
                 vnf_failure_probability = random.uniform(0.025, 0.175)
                 backup_server_failure_probability = random.uniform(0.01, 0.05)
-                cost = math.log(1 / (1 - vnf_failure_probability * backup_server_failure_probability))
+                cost = math.log(1 / (1 - vnf_failure_probability * backup_server_failure_probability)) * 2000
                 capacities_and_costs[(vnf, switch)] = (capacity, cost)
         for switch in self.available_backup_servers:
             E_prime.append((switch, self.sink))
             capacities_and_costs[(switch, self.sink)] = (self.resource_capacity, 0)
-        return V_prime, E_prime, capacities_and_costs
+        return V_prime, E_prime, capacities_and_costs, node_mapping
+    
+    def gen_information_file(self):
+        f = open('flow_network.txt', 'w')
+        f.write('This is a flow network consisting of m vnf and multiple backup servers.\n\n')
+        f.write('Source Node: ' + self.source + '\n')
+        f.write('Sink Node: ' + self.sink + '\n')
+        f.write('VNF host nodes: \n')
+        for vnf in self.vnf_list:
+            f.write(vnf + '\n')
+        f.write('\nAvailable backup servers will be all other switches in the network')
+        f.write('\nNode mapping: \n')
+        for item in self.node_mapping.items():
+            f.write(str(item[0]) + ': ' + str(item[1]) + '\n')
+        
+    def greedy_algo(self):
+        pass
     
     def gen_output_file(self):
-        f = open('fn.inp', 'x')
+        f = open('fn.inp', 'w')
         num_nodes = str(len(self.V_prime))
         num_arcs = str(len(self.E_prime))
         f.write('p min ' + num_nodes + ' ' + num_arcs + '\n')
-        f.write('n ' + self.source + ' ' + str(self.supply) + '\n')
-        f.write('n ' + self.sink + ' ' + str(self.demand) + '\n')
+        f.write('n ' + str(self.node_mapping[self.source]) + ' ' + str(self.supply) + '\n')
+        f.write('n ' + str(self.node_mapping[self.sink]) + ' ' + str(self.demand) + '\n')
         for edge in self.E_prime:
-            f.write('a ' + str(edge[0]) + ' ' + str(edge[1]) + ' ' + '1 ' + '1 ' + str(self.capacities_and_costs[edge][1]) + '\n')
+            f.write('a ' + str(self.node_mapping[edge[0]]) + ' ' + str(self.node_mapping[edge[1]]) + ' ' + '0 ' + '1 ' + str(self.capacities_and_costs[edge][1]) + '\n')
         
             
         
