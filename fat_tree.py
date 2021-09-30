@@ -12,12 +12,12 @@ import random
 class Switch():
     def __init__(self, num_ports):
         pass
-        
+
 class fatTree:
     """
     A class to represent a fat tree network.
 
-    ...    
+    ...
 
     Attributes
     ----------
@@ -49,13 +49,13 @@ class fatTree:
         Number of pods in the network
     hostsPerPod : int
         Number of hosts connected to each pod
-        
+
     Methods
     -------
-    
+
 
     """
-    # Lists for all switches in the network 
+    # Lists for all switches in the network
     CoreSwitchList = []
     AggSwitchList = []
     EdgeSwitchList = []
@@ -67,7 +67,7 @@ class fatTree:
     linkList = []
 
     def __init__(self, k):
-        # k is the number of ports for each switch in the network 
+        # k is the number of ports for each switch in the network
         self.k = k
         # Each pod will containg k/2 aggregation switches and k/2 edge switches
         self.podSize = int(k/2)
@@ -281,11 +281,11 @@ class FlowNetwork():
         self.f = int(input('Enter f, the frequency of the link: '))
         self.resource_capacity = 1
         self.vnf_list, self.available_backup_servers = self.generate_VNF_and_available_backup_servers()
+        self.failure_probabilities = self.assign_failure_probabilities()
         self.V_prime, self.E_prime, self.capacities_and_costs, self.node_mapping = self.dataCenter_to_flowNetwork()
         self.gen_output_file()
         self.gen_information_file()
-        print(self.capacities_and_costs)
-        
+
     def generate_VNF_and_available_backup_servers(self):
         available_switches = self.network.CoreSwitchList + self.network.AggSwitchList + self.network.EdgeSwitchList
         vnf_list = []
@@ -294,7 +294,15 @@ class FlowNetwork():
             vnf_list.append(vnf)
             available_switches.remove(vnf)
         return vnf_list, available_switches
-    
+
+    def assign_failure_probabilities(self):
+        failure_probabilities = {}
+        for vnf in self.vnf_list:
+            failure_probabilities[vnf] = random.uniform(0.025, 0.175)
+        for switch in self.available_backup_servers:
+            failure_probabilities[switch] = random.uniform(0.01, 0.05)
+        return failure_probabilities
+
     def dataCenter_to_flowNetwork(self):
         V_prime = [self.source] + [self.sink] + self.vnf_list + self.available_backup_servers
         num_nodes = len(V_prime)
@@ -310,31 +318,36 @@ class FlowNetwork():
             for switch in self.available_backup_servers:
                 E_prime.append((vnf, switch))
                 capacity = 1
-                vnf_failure_probability = random.uniform(0.025, 0.175)
-                backup_server_failure_probability = random.uniform(0.01, 0.05)
-                cost = math.log(1 / (1 - vnf_failure_probability * backup_server_failure_probability)) * 2000
+                cost = math.log(1 / (1 - self.failure_probabilities[vnf] * self.failure_probabilities[switch])) * 2000
                 capacities_and_costs[(vnf, switch)] = (capacity, cost)
         for switch in self.available_backup_servers:
             E_prime.append((switch, self.sink))
             capacities_and_costs[(switch, self.sink)] = (self.resource_capacity, 0)
         return V_prime, E_prime, capacities_and_costs, node_mapping
-    
+
     def gen_information_file(self):
+        vnf_probabilities = [(vnf, vnf_prob) for (vnf, vnf_prob) in self.failure_probabilities.items() if vnf in self.vnf_list]
+        switch_probabilities = [(switch, switch_prob) for (switch, switch_prob) in self.failure_probabilities.items() if switch in self.available_backup_servers]
+        vnf_probabilities.sort(key = lambda x: x[1])
+        switch_probabilities.sort(key = lambda x: x[1])
+        sfc_availibility = 1
+        for i in range(len(vnf_probabilities)):
+            sfc_availibility *= (1 - vnf_probabilities[i][1] * switch_probabilities[i][1])
         f = open('flow_network.txt', 'w')
         f.write('This is a flow network consisting of m vnf and multiple backup servers.\n\n')
         f.write('Source Node: ' + self.source + '\n')
         f.write('Sink Node: ' + self.sink + '\n')
         f.write('VNF host nodes: \n')
         for vnf in self.vnf_list:
-            f.write(vnf + '\n')
-        f.write('\nAvailable backup servers will be all other switches in the network')
+            f.write(vnf + '  failure_probability: ' + str(self.failure_probabilities[vnf]) + ' \n')
+        f.write('\nAvailable backup servers will be all other switches in the network\n')
+        for switch in self.available_backup_servers:
+            f.write(switch + ' failure_probability: ' + str(self.failure_probabilities[switch]) + ' \n')
+        f.write('SFC Availability: ' + str(sfc_availibility) + '\n')
         f.write('\nNode mapping: \n')
         for item in self.node_mapping.items():
             f.write(str(item[0]) + ': ' + str(item[1]) + '\n')
-        
-    def greedy_algo(self):
-        pass
-    
+
     def gen_output_file(self):
         f = open('fn.inp', 'w')
         num_nodes = str(len(self.V_prime))
@@ -344,20 +357,20 @@ class FlowNetwork():
         f.write('n ' + str(self.node_mapping[self.sink]) + ' ' + str(self.demand) + '\n')
         for edge in self.E_prime:
             f.write('a ' + str(self.node_mapping[edge[0]]) + ' ' + str(self.node_mapping[edge[1]]) + ' ' + '0 ' + '1 ' + str(self.capacities_and_costs[edge][1]) + '\n')
-        
-            
-        
-        
-        
-test= FlowNetwork()
-                
-    
-    
-    
-    
 
-    
-        
+
+
+
+
+test= FlowNetwork()
+
+
+
+
+
+
+
+
 
 
 
