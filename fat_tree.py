@@ -318,7 +318,7 @@ class FlowNetwork():
             for switch in self.available_backup_servers:
                 E_prime.append((vnf, switch))
                 capacity = 1
-                cost = math.log(1 / (1 - self.failure_probabilities[vnf] * self.failure_probabilities[switch])) * 2000
+                cost = 10000 * math.log(1 / (1 - self.failure_probabilities[vnf] * self.failure_probabilities[switch]), 10)
                 capacities_and_costs[(vnf, switch)] = (capacity, cost)
         for switch in self.available_backup_servers:
             E_prime.append((switch, self.sink))
@@ -329,10 +329,14 @@ class FlowNetwork():
         vnf_probabilities = [(vnf, vnf_prob) for (vnf, vnf_prob) in self.failure_probabilities.items() if vnf in self.vnf_list]
         switch_probabilities = [(switch, switch_prob) for (switch, switch_prob) in self.failure_probabilities.items() if switch in self.available_backup_servers]
         vnf_probabilities.sort(key = lambda x: x[1])
-        switch_probabilities.sort(key = lambda x: x[1])
-        sfc_availibility = 1
+        switch_probabilities.sort(reverse = True, key = lambda x: x[1])
+        sfc_availibility1 = 1
         for i in range(len(vnf_probabilities)):
-            sfc_availibility *= (1 - vnf_probabilities[i][1] * switch_probabilities[i][1])
+            sfc_availibility1 *= (1 - vnf_probabilities[i][1] * switch_probabilities[i][1])
+        switch_probabilities.sort(key = lambda x: x[1])
+        sfc_availibility2 = 1
+        for i in range(len(vnf_probabilities)):
+            sfc_availibility2 *= (1 - vnf_probabilities[i][1] * switch_probabilities[i][1])
         f = open('flow_network.txt', 'w')
         f.write('This is a flow network consisting of m vnf and multiple backup servers.\n\n')
         f.write('Source Node: ' + self.source + '\n')
@@ -343,26 +347,23 @@ class FlowNetwork():
         f.write('\nAvailable backup servers will be all other switches in the network\n')
         for switch in self.available_backup_servers:
             f.write(switch + ' failure_probability: ' + str(self.failure_probabilities[switch]) + ' \n')
-        f.write('SFC Availability: ' + str(sfc_availibility) + '\n')
+        f.write('\nSFC Availability greedy 1: ' + str(sfc_availibility1) + '\n')
+        f.write('SFC Availability greedy 2: ' + str(sfc_availibility2) + '\n')
         f.write('\nNode mapping: \n')
         for item in self.node_mapping.items():
             f.write(str(item[0]) + ': ' + str(item[1]) + '\n')
 
     def gen_output_file(self):
-        f = open('fn.inp', 'w')
+        f = open('output.txt', 'w')
         num_nodes = str(len(self.V_prime))
         num_arcs = str(len(self.E_prime))
         f.write('p min ' + num_nodes + ' ' + num_arcs + '\n')
         f.write('n ' + str(self.node_mapping[self.source]) + ' ' + str(self.supply) + '\n')
         f.write('n ' + str(self.node_mapping[self.sink]) + ' ' + str(self.demand) + '\n')
         for edge in self.E_prime:
-            f.write('a ' + str(self.node_mapping[edge[0]]) + ' ' + str(self.node_mapping[edge[1]]) + ' ' + '0 ' + '1 ' + str(self.capacities_and_costs[edge][1]) + '\n')
+            f.write('a ' + str(self.node_mapping[edge[0]]) + ' ' + str(self.node_mapping[edge[1]]) + ' ' + '0 ' + '1 ' + str(self.capacities_and_costs[(edge)][1]) + '\n')
 
-
-
-
-
-test= FlowNetwork()
+t = FlowNetwork()
 
 
 
