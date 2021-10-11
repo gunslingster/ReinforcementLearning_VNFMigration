@@ -14,3 +14,11 @@ def extract_mcf(output_file):
             if info[3] == '1':
                 mapping[int(info[1])] = int(info[2])
     return mapping
+
+def get_key_from_value(dictionary, value):
+    for key,val in dictionary.items():
+        if val == value:
+            return key
+        
+
+
