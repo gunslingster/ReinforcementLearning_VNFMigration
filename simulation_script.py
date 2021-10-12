@@ -21,7 +21,7 @@ for num_vnf in range(1, 10, 2):
         path3 = os.path.join(dir3, output)
         flow_network.gen_output_file(path2)
         flow_network.gen_information_file(path1)
-        os.system(f'./cs2.exe < {path2path} > {path3}')
+        os.system(f'./cs2.exe < {path2} > {path3}')
         vnf_mapping = extract_mcf(path3)
         mcf = 1
         for vnf, backup in vnf_mapping.items():
