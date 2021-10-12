@@ -18,7 +18,7 @@ for num_vnf in range(1, 10, 2):
         output = f'output{num_vnf}{count}.txt'
         path1 = os.path.join(dir1, f)
         path2 = os.path.join(dir2, f)
-        path3 = os.path.join(dir3, output)
+        path3 = os.path.join(dir3, f)
         flow_network.gen_output_file(path2)
         flow_network.gen_information_file(path1)
         os.system(f'./cs2.exe < {path2} > {path3}')
@@ -32,11 +32,6 @@ for num_vnf in range(1, 10, 2):
             mcf *= 1 - vnf_failure * backup_failure
         with open(path1, 'a') as f:
             f.write(f'SFC availability via MCF: {mcf}\n')
-
-
-
-    
-
 
 
     
