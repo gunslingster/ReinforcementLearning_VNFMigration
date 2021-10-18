@@ -1,4 +1,5 @@
 import os
+from utils import convert_to_csv
 
 datafile = open('data.txt', 'w')
 file_dir = os.path.join(os.getcwd(), 'information_files')
@@ -13,12 +14,16 @@ for i in range(1,10,2):
                     datafile.write(line + '\n')
             datafile.write('\n')
 
-                    
-                    
-            
-            
-        
-        
-    
-    
-    
+datafile.close()
+convert_to_csv('data.txt')
+
+
+
+
+
+
+
+
+
+
+
