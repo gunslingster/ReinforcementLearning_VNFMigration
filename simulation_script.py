@@ -30,8 +30,15 @@ for num_vnf in range(1, 10, 2):
             vnf_failure = flow_network.failure_probabilities[vnf]
             backup_failure = flow_network.failure_probabilities[backup]
             mcf *= 1 - vnf_failure * backup_failure
-        with open(path1, 'a') as f:
-            f.write(f'SFC availability via MCF: {mcf}\n')
-
-
-    
+        with open(path1, "r") as f:
+            contents = f.readlines()
+        contents.insert(89, f'SFC availability via MCF: {mcf}\n')
+        line_num = 90
+        for vnf, backup in vnf_mapping.items():
+            contents.insert(line_num, f'VNF {vnf} attached to backup server {backup}\n')
+            line_num += 1
+        with open(path1, "w") as f:
+            contents = "".join(contents)
+            f.write(contents)
+            
+        

@@ -5,14 +5,14 @@ c
 c nodes:              81     arcs:              157
 c scale-factor:       12     cut-off-factor:   12.0
 c
-c time:             0.00     cost:                3
+c time:             0.00     cost:                6
 c refines:             1     discharges:          5
 c pushes:              5     relabels:            5
 c updates:             0     u-scans:             0
-c p-refines:           2     r-scans:            16
-c dfs-scans:         324     bad-in:        0  +  0
+c p-refines:           3     r-scans:            24
+c dfs-scans:         486     bad-in:        0  +  0
 c
-s       3
+s       6
 f       0       2          1
 f       2       3          0
 f       2      42          0
@@ -62,14 +62,14 @@ f       2      25          0
 f       2      64          0
 f       2      26          0
 f       2      65          0
-f       2      27          1
+f       2      27          0
 f       2      66          0
 f       2      28          0
 f       2      67          0
 f       2      29          0
 f       2      68          0
 f       2      30          0
-f       2      69          0
+f       2      69          1
 f       2      31          0
 f       2      70          0
 f       2      32          0
@@ -116,7 +116,7 @@ f      23       1          0
 f      24       1          0
 f      25       1          0
 f      26       1          0
-f      27       1          1
+f      27       1          0
 f      28       1          0
 f      29       1          0
 f      30       1          0
@@ -158,7 +158,7 @@ f      65       1          0
 f      66       1          0
 f      67       1          0
 f      68       1          0
-f      69       1          0
+f      69       1          1
 f      70       1          0
 f      71       1          0
 f      72       1          0

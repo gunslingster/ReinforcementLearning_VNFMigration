@@ -46,7 +46,7 @@ class fatTree:
 
 
     """
-    
+
     def __init__(self, k):
         # Lists for all switches in the network
         self.CoreSwitchList = []
@@ -263,13 +263,13 @@ class fatTree:
 class FlowNetwork():
     """
     Flow network
-    
+
     k : int
         Number of ports
     m : int
         Number of VNF
     f : frequency of the link
-    
+
     """
     def __init__(self, k, m, f):
         self.k = k
@@ -332,10 +332,12 @@ class FlowNetwork():
         vnf_probabilities = [(vnf, vnf_prob) for (vnf, vnf_prob) in self.failure_probabilities.items() if vnf in self.vnf_list]
         switch_probabilities = [(switch, switch_prob) for (switch, switch_prob) in self.failure_probabilities.items() if switch in self.available_backup_servers]
         vnf_probabilities.sort(key = lambda x: x[1])
-        switch_probabilities.sort(reverse = True, key = lambda x: x[1])
+        switch_probabilities.sort(key = lambda x: x[1])
+        greedy1_switches = switch_probabilities[:len(vnf_probabilities)]
+        greedy1_switches.sort(reverse=True, key = lambda x: x[1])
         sfc_availibility1 = 1
         for i in range(len(vnf_probabilities)):
-            sfc_availibility1 *= (1 - vnf_probabilities[i][1] * switch_probabilities[i][1])
+            sfc_availibility1 *= (1 - vnf_probabilities[i][1] * greedy1_switches[i][1])
         switch_probabilities.sort(key = lambda x: x[1])
         sfc_availibility2 = 1
         for i in range(len(vnf_probabilities)):

@@ -1,4 +1,4 @@
-Simulation results for 1 VNF:
+Simulation results for 1 VNF: 
 
 
 SFC Availability greedy 1: 0.993562337707112
@@ -71,7 +71,7 @@ SFC Availability greedy 2: 0.9991651306023986
 SFC availability via MCF: 0.9990933499697998
 
 
-Simulation results for 3 VNF:
+Simulation results for 3 VNF: 
 
 
 SFC Availability greedy 1: 0.9889414462837812
@@ -144,7 +144,7 @@ SFC Availability greedy 2: 0.9963360562048528
 SFC availability via MCF: 0.9963753177488333
 
 
-Simulation results for 5 VNF:
+Simulation results for 5 VNF: 
 
 
 SFC Availability greedy 1: 0.9818056175293658
@@ -217,7 +217,7 @@ SFC Availability greedy 2: 0.9961675872133586
 SFC availability via MCF: 0.9963015492623781
 
 
-Simulation results for 7 VNF:
+Simulation results for 7 VNF: 
 
 
 SFC Availability greedy 1: 0.9692762935867835
@@ -290,7 +290,7 @@ SFC Availability greedy 2: 0.9897580090352074
 SFC availability via MCF: 0.9902355262645318
 
 
-Simulation results for 9 VNF:
+Simulation results for 9 VNF: 
 
 
 SFC Availability greedy 1: 0.9581924428445437

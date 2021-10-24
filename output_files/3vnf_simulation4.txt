@@ -5,14 +5,14 @@ c
 c nodes:              81     arcs:              307
 c scale-factor:       12     cut-off-factor:   12.0
 c
-c time:             0.00     cost:                6
-c refines:             1     discharges:         11
-c pushes:             15     relabels:            9
+c time:             0.00     cost:                9
+c refines:             1     discharges:         14
+c pushes:             21     relabels:           12
 c updates:             0     u-scans:             0
-c p-refines:           2     r-scans:            14
+c p-refines:           2     r-scans:            24
 c dfs-scans:         324     bad-in:        0  +  0
 c
-s       6
+s       9
 f       0       2          1
 f       0       4          1
 f       0       3          1
@@ -51,7 +51,7 @@ f       2      57          0
 f       2      20          0
 f       2      58          0
 f       2      21          0
-f       2      59          1
+f       2      59          0
 f       2      22          0
 f       2      60          0
 f       2      23          0
@@ -62,7 +62,7 @@ f       2      25          0
 f       2      63          0
 f       2      26          0
 f       2      64          0
-f       2      27          0
+f       2      27          1
 f       2      65          0
 f       2      28          0
 f       2      66          0
@@ -100,7 +100,7 @@ f       3       6          0
 f       3      46          0
 f       3       7          0
 f       3      47          0
-f       3       8          0
+f       3       8          1
 f       3      48          0
 f       3       9          0
 f       3      49          0
@@ -129,7 +129,7 @@ f       3      60          0
 f       3      21          0
 f       3      61          0
 f       3      22          0
-f       3      62          1
+f       3      62          0
 f       3      23          0
 f       3      63          0
 f       3      24          0
@@ -196,7 +196,7 @@ f       4      49          0
 f       4      27          0
 f       4       8          0
 f       4      30          0
-f       4      57          1
+f       4      57          0
 f       4      31          0
 f       4      61          0
 f       4      26          0
@@ -242,12 +242,12 @@ f       4      68          0
 f       4      74          0
 f       4      44          0
 f       4      52          0
-f       4      60          0
+f       4      60          1
 f       4      76          0
 f       5       1          0
 f       6       1          0
 f       7       1          0
-f       8       1          0
+f       8       1          1
 f       9       1          0
 f      10       1          0
 f      11       1          0
@@ -266,7 +266,7 @@ f      23       1          0
 f      24       1          0
 f      25       1          0
 f      26       1          0
-f      27       1          0
+f      27       1          1
 f      28       1          0
 f      29       1          0
 f      30       1          0
@@ -296,12 +296,12 @@ f      53       1          0
 f      54       1          0
 f      55       1          0
 f      56       1          0
-f      57       1          1
+f      57       1          0
 f      58       1          0
-f      59       1          1
-f      60       1          0
+f      59       1          0
+f      60       1          1
 f      61       1          0
-f      62       1          1
+f      62       1          0
 f      63       1          0
 f      64       1          0
 f      65       1          0
