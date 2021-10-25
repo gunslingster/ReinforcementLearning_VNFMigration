@@ -3,10 +3,10 @@ from utils import convert_to_csv
 
 datafile = open('data.txt', 'w')
 file_dir = os.path.join(os.getcwd(), 'information_files')
-for i in range(1,10,2):
+for i in range(1,40,3):
     datafile.write(f'Simulation results for {i} VNF: \n\n\n')
     for filename in os.listdir(file_dir):
-        if int(filename[0]) == i:
+        if int(filename[0:2]) == i:
             f = open(os.path.join(file_dir, filename), 'r')
             content = f.readlines()
             for line in content:

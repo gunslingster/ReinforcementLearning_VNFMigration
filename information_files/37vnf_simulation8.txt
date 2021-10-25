@@ -1,0 +1,213 @@
+This is a flow network consisting of m vnf and multiple backup servers.
+
+Source Node: 2014
+Sink Node: 4084
+VNF host nodes: 
+3023  failure_probability: 0.15729081027470052 
+2012  failure_probability: 0.17383969491385542 
+3027  failure_probability: 0.1447383400894809 
+3005  failure_probability: 0.048931227621746384 
+2018  failure_probability: 0.05282977285451752 
+3010  failure_probability: 0.11693667502564906 
+2015  failure_probability: 0.09393533296804651 
+2001  failure_probability: 0.04349978482725975 
+2025  failure_probability: 0.12497373688438881 
+2013  failure_probability: 0.05410470026973848 
+3031  failure_probability: 0.11640201638578959 
+2019  failure_probability: 0.08014223183803938 
+2016  failure_probability: 0.12744114491312142 
+3024  failure_probability: 0.15431766794473842 
+3018  failure_probability: 0.11908852828170852 
+1016  failure_probability: 0.048301142507644626 
+1010  failure_probability: 0.1579678813097149 
+3025  failure_probability: 0.0734646856807316 
+2027  failure_probability: 0.031894876550599326 
+3030  failure_probability: 0.08645821405373433 
+1004  failure_probability: 0.1658858432765631 
+3009  failure_probability: 0.08716747220777568 
+1009  failure_probability: 0.14224143797923033 
+2003  failure_probability: 0.09511594557455239 
+2011  failure_probability: 0.10202686296703631 
+2005  failure_probability: 0.15155366226498737 
+3008  failure_probability: 0.050202263157801935 
+3032  failure_probability: 0.11482951188454926 
+1003  failure_probability: 0.09745795861471121 
+3019  failure_probability: 0.11741017806741802 
+3007  failure_probability: 0.13919850617139248 
+3021  failure_probability: 0.0994400078779856 
+2023  failure_probability: 0.14432319828733167 
+3003  failure_probability: 0.06702496184307746 
+1006  failure_probability: 0.031237858554386263 
+1007  failure_probability: 0.09475015980823914 
+2009  failure_probability: 0.1746376261113296 
+
+Available backup servers will be all other switches in the network
+1001 failure_probability: 0.03822355907359669 
+1002 failure_probability: 0.022669460280455685 
+1005 failure_probability: 0.04908862725334271 
+1008 failure_probability: 0.026661471737274296 
+1011 failure_probability: 0.03604091265955504 
+1012 failure_probability: 0.01930150632663284 
+1013 failure_probability: 0.017820507175487832 
+1014 failure_probability: 0.02944172734884304 
+1015 failure_probability: 0.010104741238804534 
+2002 failure_probability: 0.030873233685896867 
+2004 failure_probability: 0.011175348459688853 
+2006 failure_probability: 0.038510463785240374 
+2007 failure_probability: 0.03815050987840251 
+2008 failure_probability: 0.012907539974467768 
+2010 failure_probability: 0.03770627999733574 
+2017 failure_probability: 0.025123960457027826 
+2020 failure_probability: 0.014375991906638217 
+2021 failure_probability: 0.01572300782644596 
+2022 failure_probability: 0.02564480274480238 
+2024 failure_probability: 0.02545226127395856 
+2026 failure_probability: 0.017044557431017866 
+2028 failure_probability: 0.018188664150685104 
+2029 failure_probability: 0.03966543512758127 
+2030 failure_probability: 0.042313309463198084 
+2031 failure_probability: 0.021543664484079118 
+2032 failure_probability: 0.02786203033979375 
+3001 failure_probability: 0.01379414881400634 
+3002 failure_probability: 0.030055864039914386 
+3004 failure_probability: 0.03546230249532457 
+3006 failure_probability: 0.045980342133475995 
+3011 failure_probability: 0.02330001778641553 
+3012 failure_probability: 0.02615312229993344 
+3013 failure_probability: 0.04943011085381676 
+3014 failure_probability: 0.019968417958188406 
+3015 failure_probability: 0.04203160892607006 
+3016 failure_probability: 0.014887209299645621 
+3017 failure_probability: 0.04847856913787956 
+3020 failure_probability: 0.02068346221159232 
+3022 failure_probability: 0.04044503285591593 
+3026 failure_probability: 0.04185081572223036 
+3028 failure_probability: 0.03524813756600147 
+3029 failure_probability: 0.02309725917786702 
+
+SFC Availability greedy 1: 0.9166808206413812
+SFC Availability greedy 2: 0.8902759032175089
+
+
+SFC availability via MCF: 0.9166808206413813
+VNF 2 attached to backup server 55
+VNF 3 attached to backup server 49
+VNF 4 attached to backup server 59
+VNF 5 attached to backup server 50
+VNF 6 attached to backup server 51
+VNF 7 attached to backup server 80
+VNF 8 attached to backup server 46
+VNF 9 attached to backup server 77
+VNF 10 attached to backup server 76
+VNF 11 attached to backup server 53
+VNF 12 attached to backup server 69
+VNF 13 attached to backup server 79
+VNF 14 attached to backup server 72
+VNF 15 attached to backup server 74
+VNF 16 attached to backup server 63
+VNF 17 attached to backup server 61
+VNF 18 attached to backup server 65
+VNF 19 attached to backup server 67
+VNF 20 attached to backup server 78
+VNF 21 attached to backup server 48
+VNF 22 attached to backup server 52
+VNF 23 attached to backup server 66
+VNF 24 attached to backup server 60
+VNF 25 attached to backup server 42
+VNF 26 attached to backup server 58
+VNF 27 attached to backup server 56
+VNF 28 attached to backup server 39
+VNF 29 attached to backup server 54
+VNF 30 attached to backup server 70
+VNF 31 attached to backup server 40
+VNF 32 attached to backup server 44
+VNF 33 attached to backup server 57
+VNF 34 attached to backup server 45
+VNF 35 attached to backup server 43
+VNF 36 attached to backup server 73
+VNF 37 attached to backup server 64
+VNF 38 attached to backup server 47
+
+
+Node mapping: 
+2014: 0
+4084: 1
+3023: 2
+2012: 3
+3027: 4
+3005: 5
+2018: 6
+3010: 7
+2015: 8
+2001: 9
+2025: 10
+2013: 11
+3031: 12
+2019: 13
+2016: 14
+3024: 15
+3018: 16
+1016: 17
+1010: 18
+3025: 19
+2027: 20
+3030: 21
+1004: 22
+3009: 23
+1009: 24
+2003: 25
+2011: 26
+2005: 27
+3008: 28
+3032: 29
+1003: 30
+3019: 31
+3007: 32
+3021: 33
+2023: 34
+3003: 35
+1006: 36
+1007: 37
+2009: 38
+1001: 39
+1002: 40
+1005: 41
+1008: 42
+1011: 43
+1012: 44
+1013: 45
+1014: 46
+1015: 47
+2002: 48
+2004: 49
+2006: 50
+2007: 51
+2008: 52
+2010: 53
+2017: 54
+2020: 55
+2021: 56
+2022: 57
+2024: 58
+2026: 59
+2028: 60
+2029: 61
+2030: 62
+2031: 63
+2032: 64
+3001: 65
+3002: 66
+3004: 67
+3006: 68
+3011: 69
+3012: 70
+3013: 71
+3014: 72
+3015: 73
+3016: 74
+3017: 75
+3020: 76
+3022: 77
+3026: 78
+3028: 79
+3029: 80

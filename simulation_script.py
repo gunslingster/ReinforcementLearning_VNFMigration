@@ -11,14 +11,15 @@ dir1 = os.path.join(dir_path, info_files)
 dir2 = os.path.join(dir_path, input_files)
 dir3 = os.path.join(dir_path, output_files)
 
-for num_vnf in range(1, 10, 2):
+for num_vnf in range(1, 40, 3):
     for count in range(1, 11):
         flow_network = FlowNetwork(8, num_vnf, 1)
-        f = f'{num_vnf}vnf_simulation{count}.txt'
-        output = f'output{num_vnf}{count}.txt'
+        f = f'{num_vnf:02}vnf_simulation{count}.txt'
+        output = f'output{num_vnf:02}{count}.txt'
         path1 = os.path.join(dir1, f)
         path2 = os.path.join(dir2, f)
         path3 = os.path.join(dir3, f)
+        
         flow_network.gen_output_file(path2)
         flow_network.gen_information_file(path1)
         os.system(f'./cs2.exe < {path2} > {path3}')
@@ -32,8 +33,8 @@ for num_vnf in range(1, 10, 2):
             mcf *= 1 - vnf_failure * backup_failure
         with open(path1, "r") as f:
             contents = f.readlines()
-        contents.insert(89, f'SFC availability via MCF: {mcf}\n')
-        line_num = 90
+            contents.insert(91, f'SFC availability via MCF: {mcf}\n')
+        line_num = 92
         for vnf, backup in vnf_mapping.items():
             contents.insert(line_num, f'VNF {vnf} attached to backup server {backup}\n')
             line_num += 1

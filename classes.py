@@ -321,7 +321,7 @@ class FlowNetwork():
             for switch in self.available_backup_servers:
                 E_prime.append((vnf, switch))
                 capacity = 1
-                cost = 10000 * math.log(1 / (1 - self.failure_probabilities[vnf] * self.failure_probabilities[switch]), 10)
+                cost = 1e16 * math.log(1 / (1 - self.failure_probabilities[vnf] * self.failure_probabilities[switch]), 10)
                 capacities_and_costs[(vnf, switch)] = (capacity, cost)
         for switch in self.available_backup_servers:
             E_prime.append((switch, self.sink))
@@ -354,7 +354,7 @@ class FlowNetwork():
             f.write(switch + ' failure_probability: ' + str(self.failure_probabilities[switch]) + ' \n')
         f.write('\nSFC Availability greedy 1: ' + str(sfc_availibility1) + '\n')
         f.write('SFC Availability greedy 2: ' + str(sfc_availibility2) + '\n')
-        f.write('\nNode mapping: \n')
+        f.write('\n\n\n\nNode mapping: \n')
         for item in self.node_mapping.items():
             f.write(str(item[0]) + ': ' + str(item[1]) + '\n')
 

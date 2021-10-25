@@ -21,15 +21,15 @@ def get_key_from_value(dictionary, value):
     for key,val in dictionary.items():
         if val == value:
             return key
-
+ 
 def convert_to_csv(data_file):
     f  = open(data_file, 'r')
     lines = f.readlines()
-    print(lines)
     output = open('data.csv', 'w')
     for line in lines:
         if 'MCF' in line and 'SFC' in line:
             data = re.search('0\..*', line).group()
+            print(data)
             output.write(data + '\n')
         elif 'SFC' in line:
             data = re.search('0\..*', line).group()
