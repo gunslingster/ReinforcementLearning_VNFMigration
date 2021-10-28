@@ -1,0 +1,184 @@
+This is a flow network consisting of m vnf and multiple backup servers.
+
+Source Node: 2026
+Sink Node: 3022
+VNF host nodes: 
+2032  failure_probability: 0.09302507925847522 
+1007  failure_probability: 0.05549350261121537 
+1006  failure_probability: 0.17026360938438515 
+3026  failure_probability: 0.09968834171732494 
+1011  failure_probability: 0.12595863349282313 
+1008  failure_probability: 0.10885507459865626 
+3018  failure_probability: 0.030572555069192226 
+2027  failure_probability: 0.1548241392838619 
+3011  failure_probability: 0.0679371996186206 
+2001  failure_probability: 0.11605102767608516 
+
+Available backup servers will be all other switches in the network
+1001 failure_probability: 0.20406819548765615 
+1002 failure_probability: 0.3824988410185909 
+1003 failure_probability: 0.5847359801094162 
+1004 failure_probability: 0.8614979730337206 
+1005 failure_probability: 0.4907482862398029 
+1009 failure_probability: 0.4321240053307168 
+1010 failure_probability: 0.36061499762099664 
+1012 failure_probability: 0.15524181289310546 
+1013 failure_probability: 0.17674788466032199 
+1014 failure_probability: 0.5542651106666603 
+1015 failure_probability: 0.04424302327831283 
+1016 failure_probability: 0.8955115988375925 
+2002 failure_probability: 0.5097786623472446 
+2003 failure_probability: 0.6228158296371968 
+2004 failure_probability: 0.3975524452746555 
+2005 failure_probability: 0.23507383539269 
+2006 failure_probability: 0.1163487583557431 
+2007 failure_probability: 0.13513150031008153 
+2008 failure_probability: 0.2649608327972835 
+2009 failure_probability: 0.4322040229447988 
+2010 failure_probability: 0.14315875872609754 
+2011 failure_probability: 0.8496408369467036 
+2012 failure_probability: 0.448990007809284 
+2013 failure_probability: 0.5356170709401475 
+2014 failure_probability: 0.08000745669852978 
+2015 failure_probability: 0.25345950520904714 
+2016 failure_probability: 0.2950073229219282 
+2017 failure_probability: 0.710196644499993 
+2018 failure_probability: 0.8024863860760227 
+2019 failure_probability: 0.28774006234259464 
+2020 failure_probability: 0.22359014483495887 
+2021 failure_probability: 0.6038543206681526 
+2022 failure_probability: 0.36610717710325275 
+2023 failure_probability: 0.8708190181103876 
+2024 failure_probability: 0.39697912908894795 
+2025 failure_probability: 0.9003513470884094 
+2028 failure_probability: 0.8918111598593593 
+2029 failure_probability: 0.5293772761090313 
+2030 failure_probability: 0.8406379996859584 
+2031 failure_probability: 0.37563154261513654 
+3001 failure_probability: 0.352657600501285 
+3002 failure_probability: 0.17473327704503638 
+3003 failure_probability: 0.8953182415480395 
+3004 failure_probability: 0.7765779320758703 
+3005 failure_probability: 0.770625759902221 
+3006 failure_probability: 0.9925057223877652 
+3007 failure_probability: 0.10623478159975176 
+3008 failure_probability: 0.8570366730044385 
+3009 failure_probability: 0.5932278010145446 
+3010 failure_probability: 0.7177412318295163 
+3012 failure_probability: 0.2179279419625864 
+3013 failure_probability: 0.2906300576253965 
+3014 failure_probability: 0.45401608182130476 
+3015 failure_probability: 0.9139867831854811 
+3016 failure_probability: 0.19575661921392198 
+3017 failure_probability: 0.4969314873487252 
+3019 failure_probability: 0.7708469424725175 
+3020 failure_probability: 0.18089907891718737 
+3021 failure_probability: 0.6581643438249617 
+3023 failure_probability: 0.22433505529213066 
+3024 failure_probability: 0.5030899369830986 
+3025 failure_probability: 0.07254944745989418 
+3027 failure_probability: 0.4871901275107681 
+3028 failure_probability: 0.36664121418507817 
+3029 failure_probability: 0.8535844830539357 
+3030 failure_probability: 0.898919278919172 
+3031 failure_probability: 0.5488413145060447 
+3032 failure_probability: 0.07396798941296903 
+
+SFC Availability greedy 1: 0.9073049666449619
+SFC Availability greedy 2: 0.8782508690259149
+
+
+
+SFC availability via MCF: 0.9073049666449617
+VNF 2 attached to backup server 29
+VNF 3 attached to backup server 19
+VNF 4 attached to backup server 22
+VNF 5 attached to backup server 28
+VNF 6 attached to backup server 79
+VNF 7 attached to backup server 58
+VNF 8 attached to backup server 53
+VNF 9 attached to backup server 73
+VNF 10 attached to backup server 32
+VNF 11 attached to backup server 36
+
+Node mapping: 
+2026: 0
+3022: 1
+2032: 2
+1007: 3
+1006: 4
+3026: 5
+1011: 6
+1008: 7
+3018: 8
+2027: 9
+3011: 10
+2001: 11
+1001: 12
+1002: 13
+1003: 14
+1004: 15
+1005: 16
+1009: 17
+1010: 18
+1012: 19
+1013: 20
+1014: 21
+1015: 22
+1016: 23
+2002: 24
+2003: 25
+2004: 26
+2005: 27
+2006: 28
+2007: 29
+2008: 30
+2009: 31
+2010: 32
+2011: 33
+2012: 34
+2013: 35
+2014: 36
+2015: 37
+2016: 38
+2017: 39
+2018: 40
+2019: 41
+2020: 42
+2021: 43
+2022: 44
+2023: 45
+2024: 46
+2025: 47
+2028: 48
+2029: 49
+2030: 50
+2031: 51
+3001: 52
+3002: 53
+3003: 54
+3004: 55
+3005: 56
+3006: 57
+3007: 58
+3008: 59
+3009: 60
+3010: 61
+3012: 62
+3013: 63
+3014: 64
+3015: 65
+3016: 66
+3017: 67
+3019: 68
+3020: 69
+3021: 70
+3023: 71
+3024: 72
+3025: 73
+3027: 74
+3028: 75
+3029: 76
+3030: 77
+3031: 78
+3032: 79

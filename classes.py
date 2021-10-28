@@ -303,7 +303,7 @@ class FlowNetwork():
         for vnf in self.vnf_list:
             failure_probabilities[vnf] = random.uniform(0.025, 0.175)
         for switch in self.available_backup_servers:
-            failure_probabilities[switch] = random.uniform(0.01, 0.05)
+            failure_probabilities[switch] = random.uniform(0.01, 1)
         return failure_probabilities
 
     def dataCenter_to_flowNetwork(self):

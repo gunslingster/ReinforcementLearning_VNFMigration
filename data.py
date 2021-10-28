@@ -3,7 +3,7 @@ from utils import convert_to_csv
 
 datafile = open('data.txt', 'w')
 file_dir = os.path.join(os.getcwd(), 'information_files')
-for i in range(1,40,3):
+for i in range(1,14,3):
     datafile.write(f'Simulation results for {i} VNF: \n\n\n')
     for filename in os.listdir(file_dir):
         if int(filename[0:2]) == i:

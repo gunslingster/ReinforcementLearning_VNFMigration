@@ -1,0 +1,15 @@
+set terminal postscript enhanced
+set auto x
+set auto y
+#set yrange [0:120]
+set style data histogram
+set style histogram cluster gap 1
+set style fill solid border -1
+set boxwidth 0.9
+set style histogram errorbars gap 1 lw 1
+set xlabel 'Number of VNFs m'
+set ylabel 'SFC Availibility A'
+set terminal postscript eps solid color lw 1 "Arial" 32
+
+set output 'plot2.eps'
+plot 'dat2.dat' using 2:3 t 'SGA','' using 4:5 t 'RSGA','' using 6:7:xticlabels(1) t 'MCF'
