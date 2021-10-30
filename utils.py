@@ -29,7 +29,6 @@ def convert_to_csv(data_file):
     for line in lines:
         if 'MCF' in line and 'SFC' in line:
             data = re.search('0\..*', line).group()
-            print(data)
             output.write(data + '\n')
         elif 'SFC' in line:
             data = re.search('0\..*', line).group()

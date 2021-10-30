@@ -280,7 +280,7 @@ class FlowNetwork():
         self.sink = random.choice(self.network.allNodes)
         self.supply = self.m
         self.demand = -self.m
-        self.resource_capacity = 1
+        self.resource_capacity = f
         self.vnf_list, self.available_backup_servers = self.generate_VNF_and_available_backup_servers()
         self.failure_probabilities = self.assign_failure_probabilities()
         self.V_prime, self.E_prime, self.capacities_and_costs, self.node_mapping = self.dataCenter_to_flowNetwork()
@@ -303,7 +303,7 @@ class FlowNetwork():
         for vnf in self.vnf_list:
             failure_probabilities[vnf] = random.uniform(0.025, 0.175)
         for switch in self.available_backup_servers:
-            failure_probabilities[switch] = random.uniform(0.01, 1)
+            failure_probabilities[switch] = random.uniform(0.01, 0.05)
         return failure_probabilities
 
     def dataCenter_to_flowNetwork(self):
@@ -327,21 +327,41 @@ class FlowNetwork():
             E_prime.append((switch, self.sink))
             capacities_and_costs[(switch, self.sink)] = (self.resource_capacity, 0)
         return V_prime, E_prime, capacities_and_costs, node_mapping
-
-    def gen_information_file(self, f):
+    
+    def greedy1(self):
+        res = 1
         vnf_probabilities = [(vnf, vnf_prob) for (vnf, vnf_prob) in self.failure_probabilities.items() if vnf in self.vnf_list]
         switch_probabilities = [(switch, switch_prob) for (switch, switch_prob) in self.failure_probabilities.items() if switch in self.available_backup_servers]
+        switch_probabilities.sort(key = lambda x: x[1])
+        num_switches = len(vnf_probabilities) // self.resource_capacity + 1
         vnf_probabilities.sort(key = lambda x: x[1])
-        switch_probabilities.sort(key = lambda x: x[1])
-        greedy1_switches = switch_probabilities[:len(vnf_probabilities)]
+        greedy1_switches = switch_probabilities[:num_switches]
         greedy1_switches.sort(reverse=True, key = lambda x: x[1])
-        sfc_availibility1 = 1
-        for i in range(len(vnf_probabilities)):
-            sfc_availibility1 *= (1 - vnf_probabilities[i][1] * greedy1_switches[i][1])
+        offset = 0
+        for i in range(len(greedy1_switches)):
+            for j in range(offset, min(offset + self.resource_capacity, len(vnf_probabilities))):
+                res *= (1 - vnf_probabilities[j][1] * greedy1_switches[i][1])
+            offset += self.resource_capacity
+        return res
+    
+    def greedy2(self):
+        res = 1
+        vnf_probabilities = [(vnf, vnf_prob) for (vnf, vnf_prob) in self.failure_probabilities.items() if vnf in self.vnf_list]
+        switch_probabilities = [(switch, switch_prob) for (switch, switch_prob) in self.failure_probabilities.items() if switch in self.available_backup_servers]
         switch_probabilities.sort(key = lambda x: x[1])
-        sfc_availibility2 = 1
-        for i in range(len(vnf_probabilities)):
-            sfc_availibility2 *= (1 - vnf_probabilities[i][1] * switch_probabilities[i][1])
+        num_switches = len(vnf_probabilities) // self.resource_capacity + 1
+        vnf_probabilities.sort(key = lambda x: x[1])
+        greedy2_switches = switch_probabilities[:num_switches]
+        offset = 0
+        for i in range(len(greedy2_switches)):
+            for j in range(offset, min(offset + self.resource_capacity, len(vnf_probabilities))):
+                res *= (1 - vnf_probabilities[j][1] * greedy2_switches[i][1])
+            offset += self.resource_capacity
+        return res
+                
+    def gen_information_file(self, f):
+        sfc_availibility1 = self.greedy1()
+        sfc_availibility2 = self.greedy2()
         f = open(f, 'w')
         f.write('This is a flow network consisting of m vnf and multiple backup servers.\n\n')
         f.write('Source Node: ' + self.source + '\n')
@@ -366,4 +386,4 @@ class FlowNetwork():
         f.write('n ' + str(self.node_mapping[self.source]) + ' ' + str(self.supply) + '\n')
         f.write('n ' + str(self.node_mapping[self.sink]) + ' ' + str(self.demand) + '\n')
         for edge in self.E_prime:
-            f.write('a ' + str(self.node_mapping[edge[0]]) + ' ' + str(self.node_mapping[edge[1]]) + ' ' + '0 ' + '1 ' + str(self.capacities_and_costs[(edge)][1]) + '\n')
+            f.write('a ' + str(self.node_mapping[edge[0]]) + ' ' + str(self.node_mapping[edge[1]]) + ' ' + '0 ' + str(self.capacities_and_costs[(edge)][0]) + ' ' + str(self.capacities_and_costs[(edge)][1]) + '\n')

@@ -3,8 +3,8 @@ from utils import convert_to_csv
 
 datafile = open('data.txt', 'w')
 file_dir = os.path.join(os.getcwd(), 'information_files')
-for i in range(1,14,3):
-    datafile.write(f'Simulation results for {i} VNF: \n\n\n')
+for i in range(1,6):
+    datafile.write(f'Simulation results for resource capacity of {i}: \n\n\n')
     for filename in os.listdir(file_dir):
         if int(filename[0:2]) == i:
             f = open(os.path.join(file_dir, filename), 'r')

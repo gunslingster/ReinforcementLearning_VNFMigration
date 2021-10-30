@@ -7,9 +7,10 @@ set style histogram cluster gap 1
 set style fill solid border -1
 set boxwidth 0.9
 set style histogram errorbars gap 1 lw 1
-set xlabel 'Number of VNFs m'
+set xlabel 'Resource Capacity'
 set ylabel 'SFC Availibility A'
 set terminal postscript eps solid color lw 1 "Arial" 32
+set key left top
 
-set output 'plot2.eps'
-plot 'dat2.dat' using 2:3 t 'SGA','' using 4:5 t 'RSGA','' using 6:7:xticlabels(1) t 'MCF'
+set output 'plot4.eps'
+plot 'dat4.dat' using 2:3 t 'SGA','' using 4:5 t 'RSGA','' using 6:7:xticlabels(1) t 'MCF'

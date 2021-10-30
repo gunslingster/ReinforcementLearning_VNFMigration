@@ -1,365 +1,365 @@
-Simulation results for 1 VNF: 
+Simulation results for resource capacity of 1: 
 
 
-SFC Availability greedy 1: 0.9983856686227515
+SFC Availability greedy 1: 0.9833063813135098
 
-SFC Availability greedy 2: 0.9983856686227515
+SFC Availability greedy 2: 0.9823259078344093
 
-SFC availability via MCF: 0.9983856686227515
+SFC availability via MCF: 0.9837572308737537
 
 
-SFC Availability greedy 1: 0.9988586035327117
+SFC Availability greedy 1: 0.981515596574598
 
-SFC Availability greedy 2: 0.9988586035327117
+SFC Availability greedy 2: 0.9801867617385528
 
-SFC availability via MCF: 0.9988586035327117
+SFC availability via MCF: 0.9821357912589445
 
 
-SFC Availability greedy 1: 0.9985375032502851
+SFC Availability greedy 1: 0.9772552111194176
 
-SFC Availability greedy 2: 0.9985375032502851
+SFC Availability greedy 2: 0.9761497108431396
 
-SFC availability via MCF: 0.9985375032502851
+SFC availability via MCF: 0.9782121632160747
 
 
-SFC Availability greedy 1: 0.9983196698746235
+SFC Availability greedy 1: 0.9822085066014934
 
-SFC Availability greedy 2: 0.9983196698746235
+SFC Availability greedy 2: 0.9810449127126204
 
-SFC availability via MCF: 0.9983196698746235
+SFC availability via MCF: 0.9828612806242815
 
 
-SFC Availability greedy 1: 0.9988542739677873
+SFC Availability greedy 1: 0.9847967425595693
 
-SFC Availability greedy 2: 0.9988542739677873
+SFC Availability greedy 2: 0.9833519670880005
 
-SFC availability via MCF: 0.9988542739677873
+SFC availability via MCF: 0.9853731085727286
 
 
-SFC Availability greedy 1: 0.999576916291902
+SFC Availability greedy 1: 0.9864170871081691
 
-SFC Availability greedy 2: 0.999576916291902
+SFC Availability greedy 2: 0.9850236849527598
 
-SFC availability via MCF: 0.999576916291902
+SFC availability via MCF: 0.9868191307848675
 
 
-SFC Availability greedy 1: 0.998801486751618
+SFC Availability greedy 1: 0.9841749831479553
 
-SFC Availability greedy 2: 0.998801486751618
+SFC Availability greedy 2: 0.9820375024678468
 
-SFC availability via MCF: 0.998801486751618
+SFC availability via MCF: 0.9849546102202474
 
 
-SFC Availability greedy 1: 0.9993231960774893
+SFC Availability greedy 1: 0.97824279672588
 
-SFC Availability greedy 2: 0.9993231960774893
+SFC Availability greedy 2: 0.977418852127669
 
-SFC availability via MCF: 0.9993231960774893
+SFC availability via MCF: 0.9790794078257032
 
 
-SFC Availability greedy 1: 0.9989346626653731
+SFC Availability greedy 1: 0.9833799879491311
 
-SFC Availability greedy 2: 0.9989346626653731
+SFC Availability greedy 2: 0.9811665448146231
 
-SFC availability via MCF: 0.9989346626653731
+SFC availability via MCF: 0.9842346969670689
 
 
-SFC Availability greedy 1: 0.9990732695535647
+SFC Availability greedy 1: 0.9799103242266504
 
-SFC Availability greedy 2: 0.9990732695535647
+SFC Availability greedy 2: 0.9787938287356687
 
-SFC availability via MCF: 0.9990732695535647
+SFC availability via MCF: 0.9808490794190731
 
 
-Simulation results for 4 VNF: 
+Simulation results for resource capacity of 2: 
 
 
-SFC Availability greedy 1: 0.9960089906666677
+SFC Availability greedy 1: 0.9875557685968073
 
-SFC Availability greedy 2: 0.9958352221472333
+SFC Availability greedy 2: 0.9870464440388188
 
-SFC availability via MCF: 0.9960089906666677
+SFC availability via MCF: 0.9878308510058512
 
 
-SFC Availability greedy 1: 0.9956956820846905
+SFC Availability greedy 1: 0.9842528017242246
 
-SFC Availability greedy 2: 0.9955673585802898
+SFC Availability greedy 2: 0.9832320553009117
 
-SFC availability via MCF: 0.9956956820846904
+SFC availability via MCF: 0.9846213441797131
 
 
-SFC Availability greedy 1: 0.9938030816811544
+SFC Availability greedy 1: 0.9868305775799542
 
-SFC Availability greedy 2: 0.993223292660114
+SFC Availability greedy 2: 0.9862242754205345
 
-SFC availability via MCF: 0.9938030816811544
+SFC availability via MCF: 0.9870875443069296
 
 
-SFC Availability greedy 1: 0.9959707089654568
+SFC Availability greedy 1: 0.981170221532199
 
-SFC Availability greedy 2: 0.9959004800832353
+SFC Availability greedy 2: 0.9798945975895302
 
-SFC availability via MCF: 0.9959707089654568
+SFC availability via MCF: 0.9818299782498935
 
 
-SFC Availability greedy 1: 0.9939166567708982
+SFC Availability greedy 1: 0.9846280947579115
 
-SFC Availability greedy 2: 0.9938353089374385
+SFC Availability greedy 2: 0.9837249479591809
 
-SFC availability via MCF: 0.9939166567708981
+SFC availability via MCF: 0.9849867496246133
 
 
-SFC Availability greedy 1: 0.9959078057093842
+SFC Availability greedy 1: 0.9833573507965007
 
-SFC Availability greedy 2: 0.9958399727492847
+SFC Availability greedy 2: 0.9829953419342167
 
-SFC availability via MCF: 0.9959078057093842
+SFC availability via MCF: 0.9835327013812715
 
 
-SFC Availability greedy 1: 0.9946803520711865
+SFC Availability greedy 1: 0.9810096098417604
 
-SFC Availability greedy 2: 0.9944830100819375
+SFC Availability greedy 2: 0.980564279037516
 
-SFC availability via MCF: 0.9946803520711865
+SFC availability via MCF: 0.9813997913919723
 
 
-SFC Availability greedy 1: 0.9953085556666649
+SFC Availability greedy 1: 0.9829458139097498
 
-SFC Availability greedy 2: 0.9952226777744531
+SFC Availability greedy 2: 0.982131515060521
 
-SFC availability via MCF: 0.9953085556666649
+SFC availability via MCF: 0.9835868271889685
 
 
-SFC Availability greedy 1: 0.9945359706738838
+SFC Availability greedy 1: 0.9879063334448842
 
-SFC Availability greedy 2: 0.9945008162326472
+SFC Availability greedy 2: 0.9870289613646026
 
-SFC availability via MCF: 0.9945359706738839
+SFC availability via MCF: 0.9881303374515749
 
 
-SFC Availability greedy 1: 0.9963380113998482
+SFC Availability greedy 1: 0.9861857076679809
 
-SFC Availability greedy 2: 0.9962174737403794
+SFC Availability greedy 2: 0.9857490103276655
 
-SFC availability via MCF: 0.9963380113998482
+SFC availability via MCF: 0.9863895888203605
 
 
-Simulation results for 7 VNF: 
+Simulation results for resource capacity of 3: 
 
 
-SFC Availability greedy 1: 0.9894878055893993
+SFC Availability greedy 1: 0.9879537062779036
 
-SFC Availability greedy 2: 0.9884685988210704
+SFC Availability greedy 2: 0.9874535226313372
 
-SFC availability via MCF: 0.9894878055893993
+SFC availability via MCF: 0.9883203369323941
 
 
-SFC Availability greedy 1: 0.9936109406869289
+SFC Availability greedy 1: 0.9851947969278623
 
-SFC Availability greedy 2: 0.9931136836658171
+SFC Availability greedy 2: 0.9852043686788288
 
-SFC availability via MCF: 0.9936109406869289
+SFC availability via MCF: 0.985672983598066
 
 
-SFC Availability greedy 1: 0.9870447066219051
+SFC Availability greedy 1: 0.9827823252642497
 
-SFC Availability greedy 2: 0.9862168990615165
+SFC Availability greedy 2: 0.9825144550967425
 
-SFC availability via MCF: 0.9870447066219052
+SFC availability via MCF: 0.9832501252226451
 
 
-SFC Availability greedy 1: 0.995362020775464
+SFC Availability greedy 1: 0.9835335800469776
 
-SFC Availability greedy 2: 0.9950799687161619
+SFC Availability greedy 2: 0.9829120240810891
 
-SFC availability via MCF: 0.995362020775464
+SFC availability via MCF: 0.9843200417215623
 
 
-SFC Availability greedy 1: 0.9901344819492245
+SFC Availability greedy 1: 0.9843011517933894
 
-SFC Availability greedy 2: 0.9896724202086727
+SFC Availability greedy 2: 0.9842079485535872
 
-SFC availability via MCF: 0.9901344819492244
+SFC availability via MCF: 0.9845416983710296
 
 
-SFC Availability greedy 1: 0.9902301443252329
+SFC Availability greedy 1: 0.9864365122814048
 
-SFC Availability greedy 2: 0.9899856649081185
+SFC Availability greedy 2: 0.9862320183501674
 
-SFC availability via MCF: 0.990230144325233
+SFC availability via MCF: 0.9867603101793158
 
 
-SFC Availability greedy 1: 0.9926278562456163
+SFC Availability greedy 1: 0.9873426114171778
 
-SFC Availability greedy 2: 0.9923216086753783
+SFC Availability greedy 2: 0.9869407975819736
 
-SFC availability via MCF: 0.9926278562456164
+SFC availability via MCF: 0.9878636042624532
 
 
-SFC Availability greedy 1: 0.9895430164718733
+SFC Availability greedy 1: 0.9843615736537461
 
-SFC Availability greedy 2: 0.9888266139015602
+SFC Availability greedy 2: 0.9841856979241765
 
-SFC availability via MCF: 0.9895430164718731
+SFC availability via MCF: 0.9847787238248163
 
 
-SFC Availability greedy 1: 0.9912068347693093
+SFC Availability greedy 1: 0.9805952374021595
 
-SFC Availability greedy 2: 0.9908830004611602
+SFC Availability greedy 2: 0.9798021453563659
 
-SFC availability via MCF: 0.9912068347693093
+SFC availability via MCF: 0.9823638379042521
 
 
-SFC Availability greedy 1: 0.9929153988639385
+SFC Availability greedy 1: 0.985022727476783
 
-SFC Availability greedy 2: 0.9924378523741533
+SFC Availability greedy 2: 0.984924316616512
 
-SFC availability via MCF: 0.9929153988639385
+SFC availability via MCF: 0.9855296280629466
 
 
-Simulation results for 10 VNF: 
+Simulation results for resource capacity of 4: 
 
 
-SFC Availability greedy 1: 0.987949862346407
+SFC Availability greedy 1: 0.9830745110433788
 
-SFC Availability greedy 2: 0.987010021624306
+SFC Availability greedy 2: 0.9830800057365061
 
-SFC availability via MCF: 0.9879498623464069
+SFC availability via MCF: 0.98341431718128
 
 
-SFC Availability greedy 1: 0.9831367440088049
+SFC Availability greedy 1: 0.9843631962491156
 
-SFC Availability greedy 2: 0.9825006999850161
+SFC Availability greedy 2: 0.9844420914848567
 
-SFC availability via MCF: 0.983136744008805
+SFC availability via MCF: 0.9850986643906383
 
 
-SFC Availability greedy 1: 0.9863773518289066
+SFC Availability greedy 1: 0.9857661255770933
 
-SFC Availability greedy 2: 0.9849989924064967
+SFC Availability greedy 2: 0.9857269873504029
 
-SFC availability via MCF: 0.9863773518289065
+SFC availability via MCF: 0.9863234455949704
 
 
-SFC Availability greedy 1: 0.9903874527255426
+SFC Availability greedy 1: 0.9876851029431097
 
-SFC Availability greedy 2: 0.9890611707278475
+SFC Availability greedy 2: 0.9875681479705293
 
-SFC availability via MCF: 0.9903874527255427
+SFC availability via MCF: 0.9879621973433105
 
 
-SFC Availability greedy 1: 0.9840989622441059
+SFC Availability greedy 1: 0.9810620616861568
 
-SFC Availability greedy 2: 0.9824089723905746
+SFC Availability greedy 2: 0.981078933144622
 
-SFC availability via MCF: 0.9840989622441058
+SFC availability via MCF: 0.9821718789499417
 
 
-SFC Availability greedy 1: 0.988430581151629
+SFC Availability greedy 1: 0.9874652070124094
 
-SFC Availability greedy 2: 0.9872384087288327
+SFC Availability greedy 2: 0.9874322314585943
 
-SFC availability via MCF: 0.9884305811516289
+SFC availability via MCF: 0.9877231085308756
 
 
-SFC Availability greedy 1: 0.9906702678625313
+SFC Availability greedy 1: 0.9885941556840212
 
-SFC Availability greedy 2: 0.9897114185994741
+SFC Availability greedy 2: 0.9886136415420396
 
-SFC availability via MCF: 0.9906702678625312
+SFC availability via MCF: 0.9887406675231559
 
 
-SFC Availability greedy 1: 0.9901061396057279
+SFC Availability greedy 1: 0.9834194799555348
 
-SFC Availability greedy 2: 0.9883984078054691
+SFC Availability greedy 2: 0.9836049705021462
 
-SFC availability via MCF: 0.9901061396057278
+SFC availability via MCF: 0.9839918528288747
 
 
-SFC Availability greedy 1: 0.987122171026727
+SFC Availability greedy 1: 0.9883268538915277
 
-SFC Availability greedy 2: 0.986620856000746
+SFC Availability greedy 2: 0.9881668243985684
 
-SFC availability via MCF: 0.9871221710267271
+SFC availability via MCF: 0.988645950053325
 
 
-SFC Availability greedy 1: 0.9880543450406768
+SFC Availability greedy 1: 0.9900093689977462
 
-SFC Availability greedy 2: 0.9864554640843191
+SFC Availability greedy 2: 0.9899949325906374
 
-SFC availability via MCF: 0.9880543450406768
+SFC availability via MCF: 0.9901888339659924
 
 
-Simulation results for 13 VNF: 
+Simulation results for resource capacity of 5: 
 
 
-SFC Availability greedy 1: 0.97952061819357
+SFC Availability greedy 1: 0.9799845986954256
 
-SFC Availability greedy 2: 0.9765478188009806
+SFC Availability greedy 2: 0.9799948603611615
 
-SFC availability via MCF: 0.9795206181935701
+SFC availability via MCF: 0.9803385340081052
 
 
-SFC Availability greedy 1: 0.9859193795018262
+SFC Availability greedy 1: 0.9870710591969107
 
-SFC Availability greedy 2: 0.9843589037457081
+SFC Availability greedy 2: 0.9867253531404983
 
-SFC availability via MCF: 0.9859193795018264
+SFC availability via MCF: 0.9873841573869944
 
 
-SFC Availability greedy 1: 0.981676780500205
+SFC Availability greedy 1: 0.9851210284181797
 
-SFC Availability greedy 2: 0.9800134872206896
+SFC Availability greedy 2: 0.9849037055410809
 
-SFC availability via MCF: 0.981676780500205
+SFC availability via MCF: 0.9853344408529523
 
 
-SFC Availability greedy 1: 0.9855517582646109
+SFC Availability greedy 1: 0.9850861549440507
 
-SFC Availability greedy 2: 0.9840187650011454
+SFC Availability greedy 2: 0.9846651819120279
 
-SFC availability via MCF: 0.9855517582646112
+SFC availability via MCF: 0.9854844144976839
 
 
-SFC Availability greedy 1: 0.9821272841807239
+SFC Availability greedy 1: 0.9828405678025679
 
-SFC Availability greedy 2: 0.980293561541732
+SFC Availability greedy 2: 0.9828201163808296
 
-SFC availability via MCF: 0.982127284180724
+SFC availability via MCF: 0.9828814450061872
 
 
-SFC Availability greedy 1: 0.9813801378892517
+SFC Availability greedy 1: 0.9882420010998292
 
-SFC Availability greedy 2: 0.9793423765404231
+SFC Availability greedy 2: 0.9880811271668573
 
-SFC availability via MCF: 0.9813801378892518
+SFC availability via MCF: 0.9883466103183323
 
 
-SFC Availability greedy 1: 0.9819438346617605
+SFC Availability greedy 1: 0.9861841813407529
 
-SFC Availability greedy 2: 0.9799315288468491
+SFC Availability greedy 2: 0.9859072465147659
 
-SFC availability via MCF: 0.9819438346617607
+SFC availability via MCF: 0.9864422140324892
 
 
-SFC Availability greedy 1: 0.9819214631747901
+SFC Availability greedy 1: 0.9878149710906255
 
-SFC Availability greedy 2: 0.9787417734507619
+SFC Availability greedy 2: 0.9875821754445094
 
-SFC availability via MCF: 0.9819214631747898
+SFC availability via MCF: 0.988018685360352
 
 
-SFC Availability greedy 1: 0.9826070654059669
+SFC Availability greedy 1: 0.9844282521084787
 
-SFC Availability greedy 2: 0.9804628310107905
+SFC Availability greedy 2: 0.9843008190093367
 
-SFC availability via MCF: 0.9826070654059669
+SFC availability via MCF: 0.9846834028112382
 
 
-SFC Availability greedy 1: 0.98481183407798
+SFC Availability greedy 1: 0.9892105664092087
 
-SFC Availability greedy 2: 0.9830012604813849
+SFC Availability greedy 2: 0.9891771821099102
 
-SFC availability via MCF: 0.9848118340779799
+SFC availability via MCF: 0.9892432613470971
 
 
